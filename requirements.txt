@@ -1,5 +1,17 @@
-agent-framework
-agent-framework-foundry
+agent-framework==1.2.2
+agent-framework-foundry==1.2.2
 python-dotenv
 azure-identity
 ipykernel
+
+# Supporting libraries  
+typing_extensions                                  # Type hints support
+
+# Observability (Section 5)
+azure-monitor-opentelemetry
+
+# Optional production enhancements
+# pydantic>=2.0.0                                 # For structured outputs
+# opentelemetry-api>=1.20.0     
+# Evaluations (Section 6)
+azure-ai-projects>=2.0.0                          
