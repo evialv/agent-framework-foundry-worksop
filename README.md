@@ -83,14 +83,19 @@ Use documentation on https://learn.microsoft.com/en-us/agent-framework/ to help 
 │   └── 01-exercises.ipynb                    #   Exercises: build an agent, add memory, implement middleware
 │
 ├── 02-workflows/                             # Chapter 2: Multi-agent workflows & orchestration
-│   ├── 02.1-intro-workflows.ipynb            #   WorkflowBuilder, executors, edges, WorkflowEvent streaming
-│   ├── 02.2-workflows-part1.ipynb            #   Sequential (SequentialBuilder) & Concurrent (ConcurrentBuilder)
-│   ├── 02.3-workflows-part2-orchestration.ipynb  #   Handoff pattern & Magentic orchestration (discussion)
-│   └── 02-exercises.ipynb                    #   Exercises: multi-agent workflow, custom executor with streaming
+│   ├── 02.1-sequential-concurrent.ipynb      #   Sequential (SequentialBuilder) & Concurrent (ConcurrentBuilder)
+│   ├── 02.2-handoff-orchestration.ipynb      #   Handoff pattern & Magentic orchestration (discussion)
+│   ├── 02-exercises.ipynb                    #   Exercises: multi-agent workflow, custom executor with streaming
+│   └── optional-deep-dive-executors-edges.ipynb  #   (Optional) Low-level Executor, Edge, WorkflowBuilder primitives
 │
-├── 05-observability.ipynb                    # OpenTelemetry tracing, Azure Monitor / App Insights
-├── 06-evaluations.ipynb                      # Foundry evaluations: groundedness, relevance, coherence
-├── 07-mcp-quick.ipynb                        # Model Context Protocol (MCP) integration demo
+├── 03-foundry-agents/                        # Chapter 3: Foundry Agents — register, deploy, observe
+│   ├── 03.1-foundry-agents.ipynb             #   Register agents in Foundry, observability via App Insights
+│   ├── agent.yaml                            #   Declarative agent definition
+│   └── agent_server.py                       #   FastAPI server exposing agent via API (port forwarding demo)
+│
+├── 04-evaluations/                           # Chapter 4: Evaluations — measure agent quality
+│   ├── 04.1-evaluations.ipynb                #   Foundry evaluations: groundedness, relevance, coherence
+│   └── eval_responses.jsonl                  #   Sample eval dataset
 │
 ├── devui/                                    # Standalone DevUI scripts (run from repo root)
 │   ├── sequential_workflow_devui.py          #   Triage → Advisor → Compliance pipeline (port 8090)
@@ -137,4 +142,31 @@ python devui/sequential_devui.py
 python devui/concurrent_devui.py
 python devui/handoff_devui.py
 ```
+
+---
+
+### Chapter 3 — Foundry Agents
+
+Use Azure AI Foundry's hosted agent capabilities — prompt agents, YAML definitions, and built-in tools.
+
+**Theory** covers:
+
+- Creating **prompt agents** via the Foundry SDK (server-side agents with web search, code interpreter, etc.)
+- Chatting with prompt agents programmatically
+- Defining agents declaratively with **YAML agent definitions** (`agent.yaml`)
+- How Foundry prompt agents compare to Agent Framework local agents
+
+---
+
+### Chapter 4 — Evaluations
+
+Get compliance sign-off with repeatable, automated evaluation of agent quality.
+
+**Theory** covers:
+
+- Building an evaluation dataset with expected facts (ground truth)
+- **Local evaluators** — `keyword_check`, `tool_calls_present`, custom `@evaluator` (cheap, fast, run on every PR)
+- Expected-output comparison to catch prompt regressions
+- **Foundry-grade evaluators** — Task Adherence, Coherence, Safety (the numbers compliance wants)
+- Wiring evaluations into a **CI gate** with `raise_for_status()`
 
