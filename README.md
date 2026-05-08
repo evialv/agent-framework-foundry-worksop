@@ -83,10 +83,10 @@ Use documentation on https://learn.microsoft.com/en-us/agent-framework/ to help 
 │   └── 01-exercises.ipynb                    #   Exercises: build an agent, add memory, implement middleware
 │
 ├── 02-workflows/                             # Chapter 2: Multi-agent workflows & orchestration
-│   ├── 02.1-intro-workflows.ipynb            #   WorkflowBuilder, executors, edges, WorkflowEvent streaming
-│   ├── 02.2-workflows-part1.ipynb            #   Sequential (SequentialBuilder) & Concurrent (ConcurrentBuilder)
-│   ├── 02.3-workflows-part2-orchestration.ipynb  #   Handoff pattern & Magentic orchestration (discussion)
-│   └── 02-exercises.ipynb                    #   Exercises: multi-agent workflow, custom executor with streaming
+│   ├── 02.1-sequential-concurrent.ipynb      #   Sequential (SequentialBuilder) & Concurrent (ConcurrentBuilder)
+│   ├── 02.2-handoff-orchestration.ipynb      #   Handoff pattern & Magentic orchestration (discussion)
+│   ├── 02-exercises.ipynb                    #   Exercises: multi-agent workflow, custom executor with streaming
+│   └── optional-deep-dive-executors-edges.ipynb  #   (Optional) Low-level Executor, Edge, WorkflowBuilder primitives
 │
 ├── 03-foundry-agents/                        # Chapter 3: Foundry Agents — register, deploy, observe
 │   ├── 03.1-foundry-agents.ipynb             #   Register agents in Foundry, observability via App Insights
